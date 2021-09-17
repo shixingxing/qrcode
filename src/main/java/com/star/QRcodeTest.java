@@ -19,8 +19,8 @@ public class QRcodeTest {
                     save_path = arg.trim().toLowerCase().split("=")[1];
                 }
             }
-            if (url_parm == "") {
-                url_parm = "http://www.so.com";
+            if (url_parm == null || url_parm.isEmpty()) {
+                throw new RuntimeErrorException((Error) null, "url null!");
             }
             QRCodeUtil.encode(url_parm, image_parm, save_path, true);
             return;
